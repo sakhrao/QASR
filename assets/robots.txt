@@ -1,0 +1,7 @@
+# QASR — Robots.txt
+# Allow all crawlers to index the website
+
+User-agent: *
+Allow: /
+
+Sitemap: https://qasr.com/sitemap.xml

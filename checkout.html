@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="QASR — Secure Checkout. Complete your luxury fashion order.">
+  <title>QASR — Checkout</title>
+  <script>!function(){var t=localStorage.getItem('qasr_theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');var l=localStorage.getItem('qasr_lang');l&&(document.documentElement.setAttribute('lang',l),'ar'===l&&document.documentElement.setAttribute('dir','rtl'))}();</script>
+  <style>html,body{background:#000}</style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+  <!-- Checkout Header -->
+  <header class="checkout-header">
+    <div class="checkout-header-inner">
+      <a href="index.html" class="checkout-logo">
+        <img src="images/logo.png" alt="QASR" class="checkout-logo-img">
+        <span>QASR</span>
+      </a>
+      <div class="checkout-actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ar">AR</button>
+        </div>
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggleCheckout" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="themeIconCheckout">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+      </div>
+      <div class="checkout-steps">
+        <span class="step active" data-i18n="checkout.step1">1. Review Order</span>
+        <span class="step-arrow">→</span>
+        <span class="step active" data-i18n="checkout.step2">2. Shipping</span>
+        <span class="step-arrow">→</span>
+        <span class="step active" data-i18n="checkout.step3">3. Confirm</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Checkout Content -->
+  <main class="checkout-main">
+    <div class="checkout-container">
+      <!-- Left: Order Summary -->
+      <div class="checkout-left">
+        <h2 class="checkout-section-title" data-i18n="checkout.orderSummary">Order Summary</h2>
+        <div class="checkout-items" id="checkoutItems">
+          <!-- Injected by JS -->
+        </div>
+
+        <div class="checkout-totals">
+          <div class="totals-row">
+            <span data-i18n="checkout.productTotal">Product Total</span>
+            <span id="checkoutSubtotal">$0.00</span>
+          </div>
+          <div class="totals-row">
+            <span data-i18n="checkout.deliveryFee">Delivery Fee</span>
+            <span id="checkoutDelivery">$0.00</span>
+          </div>
+          <div class="totals-row" id="checkoutDiscountRow" style="display:none">
+            <span>Discount</span>
+            <span id="checkoutDiscount">-$0.00</span>
+          </div>
+          <div class="totals-row totals-final">
+            <span data-i18n="checkout.total">Total</span>
+            <span id="checkoutTotal">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Trust Notes -->
+        <div class="checkout-trust">
+          <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="checkout.trust1">Cash on Delivery</span></div>
+          <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="checkout.trust2">Fast Delivery within 24–72 Hours</span></div>
+          <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-i18n="checkout.trust3">Quality Guaranteed</span></div>
+          <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span data-i18n="checkout.trust4">Direct WhatsApp Support</span></div>
+        </div>
+      </div>
+
+      <!-- Right: Customer Form -->
+      <div class="checkout-right">
+        <h2 class="checkout-section-title" data-i18n="checkout.customerInfo">Customer Information</h2>
+
+        <form id="checkoutForm" class="checkout-form">
+          <div class="form-group">
+            <input type="text" class="form-input" id="cf_fullName" placeholder=" " required>
+            <label class="form-label" data-i18n="checkout.fullName">Full Name</label>
+            <span class="form-focus-border"></span>
+          </div>
+
+          <div class="form-group">
+            <input type="tel" class="form-input" id="cf_phone" placeholder=" " required>
+            <label class="form-label" data-i18n="checkout.phone">Phone Number</label>
+            <span class="form-focus-border"></span>
+          </div>
+
+          <div class="form-group">
+            <select class="form-input form-select" id="cf_wilaya" required>
+              <option value="" disabled selected data-i18n="checkout.wilaya"></option>
+            </select>
+            <label class="form-label" data-i18n="checkout.wilaya">Wilaya (State)</label>
+            <span class="form-focus-border"></span>
+          </div>
+
+          <div class="form-group">
+            <select class="form-input form-select" id="cf_municipality" required>
+              <option value="" disabled selected data-i18n="checkout.municipality"></option>
+            </select>
+            <label class="form-label" data-i18n="checkout.municipality">Municipality</label>
+            <span class="form-focus-border"></span>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-input" id="cf_address" placeholder=" ">
+            <label class="form-label" data-i18n="checkout.address">Address (Optional)</label>
+            <span class="form-focus-border"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label-static" data-i18n="checkout.deliveryType">Delivery Type</label>
+            <div class="delivery-options">
+              <label class="delivery-option">
+                <input type="radio" name="delivery" value="home" checked>
+                <span class="delivery-radio"></span>
+                <span data-i18n="checkout.homeDelivery">Home Delivery</span>
+              </label>
+              <label class="delivery-option">
+                <input type="radio" name="delivery" value="office">
+                <span class="delivery-radio"></span>
+                <span data-i18n="checkout.deliveryOffice">Delivery Office</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-input form-textarea" id="cf_notes" placeholder=" " rows="3"></textarea>
+            <label class="form-label" data-i18n="checkout.notes">Additional Notes (Optional)</label>
+            <span class="form-focus-border"></span>
+          </div>
+
+          <button type="submit" class="btn btn-gold checkout-confirm-btn" id="checkoutConfirm">
+            <span data-i18n="checkout.confirm">Confirm Order</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Success Modal -->
+  <div class="checkout-success-overlay" id="checkoutSuccess">
+    <div class="checkout-success-modal">
+      <div class="success-icon">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h2 data-i18n="checkout.success">Order Confirmed!</h2>
+      <p data-i18n="checkout.successMsg">Thank you for your order. You will receive a confirmation shortly.</p>
+      <a href="index.html" class="btn btn-gold" data-i18n="checkout.backHome">Back to Home</a>
+    </div>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/wilaya-data.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

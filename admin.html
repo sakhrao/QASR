@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QASR — Admin Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-inner">
+        <div class="admin-sidebar-logo">QASR</div>
+        <nav class="admin-nav" role="navigation">
+          <div class="admin-nav-item active" data-tab="dashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span data-i18n="admin.sidebar.dashboard">Dashboard</span>
+          </div>
+          <div class="admin-nav-item" data-tab="products">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            <span data-i18n="admin.sidebar.products">Products</span>
+          </div>
+          <div class="admin-nav-item" data-tab="orders">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+            <span data-i18n="admin.sidebar.orders">Orders</span>
+          </div>
+          <div class="admin-nav-item" data-tab="discounts">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            <span data-i18n="admin.sidebar.discounts">Discounts</span>
+          </div>
+          <div class="admin-nav-item" data-tab="subscribers">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span data-i18n="admin.sidebar.subscribers">Subscribers</span>
+          </div>
+          <div class="admin-nav-item" data-tab="categories">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h7v7H4z"/><path d="M15 4h5v5h-5z"/><path d="M4 15h7v5H4z"/><path d="M15 15h5v5h-5z"/></svg>
+            <span data-i18n="admin.sidebar.categories">Categories</span>
+          </div>
+          <div class="admin-nav-item" data-tab="inbox">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-6l-2 3H10l-2-3H2"/><path d="M2 6h20v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/></svg>
+            <span data-i18n="admin.sidebar.inbox">Inbox</span>
+          </div>
+          <div class="admin-nav-item" data-tab="testimonials">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            <span data-i18n="admin.sidebar.testimonials">Testimonials</span>
+          </div>
+          <div class="admin-nav-item" data-tab="lookbook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span data-i18n="admin.sidebar.lookbook">Lookbook</span>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="admin-main">
+      <div class="admin-header">
+        <div class="admin-header-left">
+          <h1><span data-i18n="admin.header">Admin Panel</span></h1>
+        </div>
+        <div class="admin-header-right">
+          <div class="admin-header-controls">
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+              <button class="lang-btn active" data-lang="en">EN</button>
+              <button class="lang-btn" data-lang="ar">AR</button>
+            </div>
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="adminThemeToggle" aria-label="Toggle theme">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="adminThemeIcon">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            </button>
+            <a class="admin-user" id="adminStoreLink" href="index.html" target="_blank" data-i18n="admin.viewStore">View Store</a>
+            <button class="admin-logout" id="logoutBtn" data-i18n="admin.signOut">Sign Out</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Tab -->
+      <div class="admin-tab active" id="tab-dashboard">
+        <div class="dash-welcome">
+          <div class="dash-welcome-text">
+            <h2 data-i18n="admin.dashboard.welcome">Welcome back,</h2>
+            <p data-i18n="admin.dashboard.subtitle">Here's what's happening with your store today.</p>
+          </div>
+          <div class="dash-welcome-badge">Admin</div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card" data-icon="box">
+            <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+            <div class="stat-body">
+              <h3 data-i18n="admin.stats.products">Products</h3>
+              <div class="stat-number" id="statProducts">-</div>
+              <div class="stat-sub" data-i18n="admin.stats.productsSub">Total catalog items</div>
+            </div>
+          </div>
+          <div class="stat-card" data-icon="clipboard">
+            <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>
+            <div class="stat-body">
+              <h3 data-i18n="admin.stats.orders">Orders</h3>
+              <div class="stat-number" id="statOrders">-</div>
+              <div class="stat-sub" data-i18n="admin.stats.ordersSub">Total received</div>
+            </div>
+          </div>
+          <div class="stat-card" data-icon="users">
+            <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="stat-body">
+              <h3 data-i18n="admin.stats.subscribers">Subscribers</h3>
+              <div class="stat-number" id="statSubscribers">-</div>
+              <div class="stat-sub" data-i18n="admin.stats.subscribersSub">Newsletter audience</div>
+            </div>
+          </div>
+          <div class="stat-card" data-icon="tag">
+            <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+            <div class="stat-body">
+              <h3 data-i18n="admin.stats.discounts">Discount Codes</h3>
+              <div class="stat-number" id="statDiscounts">-</div>
+              <div class="stat-sub" data-i18n="admin.stats.discountsSub">Active promotions</div>
+            </div>
+          </div>
+          <div class="stat-card" data-icon="layers">
+            <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+            <div class="stat-body">
+              <h3 data-i18n="admin.stats.categories">Categories</h3>
+              <div class="stat-number" id="statCategories">-</div>
+              <div class="stat-sub" data-i18n="admin.stats.categoriesSub">Product categories</div>
+            </div>
+          </div>
+          <div class="stat-card" data-icon="star">
+            <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="stat-body">
+              <h3 data-i18n="admin.stats.testimonials">Testimonials</h3>
+              <div class="stat-number" id="statTestimonials">-</div>
+              <div class="stat-sub" data-i18n="admin.stats.testimonialsSub">Customer reviews</div>
+            </div>
+          </div>
+          <div class="stat-card" data-icon="image">
+            <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+            <div class="stat-body">
+              <h3 data-i18n="admin.stats.lookbook">Lookbook Items</h3>
+              <div class="stat-number" id="statLookbook">-</div>
+              <div class="stat-sub" data-i18n="admin.stats.lookbookSub">Gallery images</div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-section-title" data-i18n="admin.dashboard.quickActions">Quick Actions</div>
+        <div class="quick-actions">
+          <a class="quick-action-card" href="#products" onclick="document.querySelector('[data-tab=products]').click()">
+            <div class="qa-icon" style="background:rgba(212,175,55,0.12);color:var(--gold)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="qa-text">
+              <strong data-i18n="admin.dashboard.manageProducts">Manage Products</strong>
+              <span data-i18n="admin.dashboard.manageProductsDesc">Add, edit, or remove items from your catalog</span>
+            </div>
+          </a>
+          <a class="quick-action-card" href="#orders" onclick="document.querySelector('[data-tab=orders]').click()">
+            <div class="qa-icon" style="background:rgba(33,150,243,0.12);color:#2196F3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+            </div>
+            <div class="qa-text">
+              <strong data-i18n="admin.dashboard.viewOrders">View Orders</strong>
+              <span data-i18n="admin.dashboard.viewOrdersDesc">Track, process, and fulfill customer orders</span>
+            </div>
+          </a>
+          <a class="quick-action-card" href="#discounts" onclick="document.querySelector('[data-tab=discounts]').click()">
+            <div class="qa-icon" style="background:rgba(76,175,80,0.12);color:#4CAF50">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            </div>
+            <div class="qa-text">
+              <strong data-i18n="admin.dashboard.discountCodes">Discount Codes</strong>
+              <span data-i18n="admin.dashboard.discountCodesDesc">Create and manage promotional offers</span>
+            </div>
+          </a>
+          <a class="quick-action-card" href="#categories" onclick="document.querySelector('[data-tab=categories]').click()">
+            <div class="qa-icon" style="background:rgba(156,39,176,0.12);color:#9C27B0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <div class="qa-text">
+              <strong data-i18n="admin.dashboard.manageCategories">Manage Categories</strong>
+              <span data-i18n="admin.dashboard.manageCategoriesDesc">Add or remove product categories</span>
+            </div>
+          </a>
+          <a class="quick-action-card" href="#testimonials" onclick="document.querySelector('[data-tab=testimonials]').click()">
+            <div class="qa-icon" style="background:rgba(255,215,0,0.12);color:#FFD700">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="qa-text">
+              <strong data-i18n="admin.dashboard.manageTestimonials">Testimonials</strong>
+              <span data-i18n="admin.dashboard.manageTestimonialsDesc">Review and manage customer testimonials</span>
+            </div>
+          </a>
+          <a class="quick-action-card" href="#lookbook" onclick="document.querySelector('[data-tab=lookbook]').click()">
+            <div class="qa-icon" style="background:rgba(138,43,226,0.12);color:#8A2BE2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <div class="qa-text">
+              <strong data-i18n="admin.dashboard.manageLookbook">Lookbook</strong>
+              <span data-i18n="admin.dashboard.manageLookbookDesc">Manage lookbook images and captions</span>
+            </div>
+          </a>
+        </div>
+        <div class="dash-section-title" data-i18n="admin.dashboard.recentOrders">Recent Orders</div>
+        <div class="dash-recent-orders" id="recentOrders">
+          <div class="dash-loading">Loading recent orders...</div>
+        </div>
+      </div>
+
+      <!-- Products Tab -->
+      <div class="admin-tab" id="tab-products">
+        <div class="admin-tab-header">
+          <h2 data-i18n="admin.products.title">Products</h2>
+          <button class="btn-add" id="addProductBtn" data-i18n="admin.products.add">+ Add Product</button>
+        </div>
+
+        <!-- Product Form -->
+        <div class="admin-form-wrap" id="productFormWrap">
+          <h3 id="productFormTitle">Add Product</h3>
+          <form id="productForm">
+            <div class="form-row">
+              <div>
+                <label data-i18n="admin.products.nameLabel">Product Name</label>
+                <input type="text" id="pfName" placeholder="e.g. Imperial Hoodie" required>
+              </div>
+              <div style="grid-column:1/-1">
+                <label data-i18n="admin.products.categoryLabel">Category</label>
+                <input type="hidden" id="pfCategory" value="">
+                <div class="category-picker" id="categoryPicker"></div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label data-i18n="admin.products.priceLabel">Price (DA)</label>
+                <input type="number" id="pfPrice" placeholder="e.g. 8500" required>
+              </div>
+              <div>
+                <label data-i18n="admin.products.sizesLabel">Available Sizes</label>
+                <div class="size-checkboxes" id="sizeCheckboxes">
+                  <label class="size-chk"><input type="checkbox" value="XS"> XS</label>
+                  <label class="size-chk"><input type="checkbox" value="S"> S</label>
+                  <label class="size-chk"><input type="checkbox" checked value="M"> M</label>
+                  <label class="size-chk"><input type="checkbox" value="L"> L</label>
+                  <label class="size-chk"><input type="checkbox" value="XL"> XL</label>
+                  <label class="size-chk"><input type="checkbox" value="XXL"> XXL</label>
+                  <label class="size-chk"><input type="checkbox" value="XXXL"> XXXL</label>
+                  <label class="size-chk size-chk-custom">
+                    <input type="checkbox" value="__custom__" id="sizeCustomCheck"> Custom
+                    <input type="text" id="sizeCustomInput" placeholder="e.g. 42" disabled style="width:70px;padding:4px 8px;font-size:0.75rem;margin-left:4px">
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label class="toggle-label">
+                  <input type="checkbox" id="pfSale">
+                  <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                  </span>
+                  <span class="toggle-text">Sale / Discount</span>
+                </label>
+                <div class="discount-field" id="discountField" style="margin-top:10px">
+                  <label>Discount %</label>
+                  <div class="discount-input-wrap">
+                    <input type="number" id="pfDiscount" placeholder="e.g. 20" value="0">
+                    <span class="discount-suffix">% OFF</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="toggle-label">
+                  <input type="checkbox" id="pfFeatured" checked>
+                  <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                  </span>
+                  <span class="toggle-text">Featured</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div style="grid-column:1/-1">
+                <label data-i18n="admin.products.descLabel">Description</label>
+                <textarea id="pfDesc" placeholder="Product description"></textarea>
+              </div>
+            </div>
+            <div style="margin-bottom:14px">
+              <label data-i18n="admin.products.colorsLabel">Colors / Variants</label>
+              <div id="colorsContainer">
+                <div class="color-row">
+                  <input type="text" class="color-name" placeholder="Name (e.g. Black)" value="Black">
+                  <input type="text" class="color-hex" placeholder="Hex (e.g. #000)" value="#000">
+                  <input type="text" class="color-img" placeholder="Image URL">
+                </div>
+              </div>
+              <button type="button" id="addColorRow" style="margin-top:8px;padding:6px 14px;background:transparent;border:1px solid var(--border);border-radius:4px;color:var(--text-muted);font-size:0.75rem;cursor:pointer">+ Add Color</button>
+            </div>
+          </form>
+          <div class="form-actions">
+            <button class="btn-save" id="saveProductBtn" data-i18n="admin.products.save">Save Product</button>
+            <button class="btn-cancel" id="cancelProductForm" data-i18n="admin.cancel">Cancel</button>
+          </div>
+        </div>
+
+        <!-- Products Table -->
+        <div class="admin-table-wrap">
+          <div class="admin-table-toolbar">
+            <input type="text" class="admin-search" id="productSearch" placeholder="Search products..." oninput="filterProducts()">
+            <select class="admin-filter-select" id="productCategoryFilter" onchange="filterProducts()">
+              <option value="" data-i18n="admin.allCategories">All Categories</option>
+            </select>
+            <label class="admin-filter-check">
+              <input type="checkbox" id="productSaleFilter" onchange="filterProducts()">
+              <span data-i18n="admin.products.saleOnly">Sale only</span>
+            </label>
+          </div>
+          <table class="admin-table">
+            <thead><tr><th data-i18n="admin.products.thImage">Image</th><th data-i18n="admin.products.thName">Name</th><th data-i18n="admin.products.thCategory">Category</th><th data-i18n="admin.products.thPrice">Price</th><th data-i18n="admin.products.thColors">Colors</th><th data-i18n="admin.products.thSale">Sale</th><th data-i18n="admin.products.thActions">Actions</th></tr></thead>
+            <tbody id="productsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Orders Tab -->
+      <div class="admin-tab" id="tab-orders">
+        <div class="admin-tab-header"><h2 data-i18n="admin.orders.title">Orders</h2></div>
+        <div class="order-filters">
+          <button class="order-filter active" data-status="all" data-i18n="admin.orders.all">All</button>
+          <button class="order-filter" data-status="pending" data-i18n="admin.orders.pending">Pending</button>
+          <button class="order-filter" data-status="processing" data-i18n="admin.orders.processing">Processing</button>
+          <button class="order-filter" data-status="completed" data-i18n="admin.orders.completed">Completed</button>
+          <button class="order-filter" data-status="cancelled" data-i18n="admin.orders.cancelled">Cancelled</button>
+        </div>
+        <div id="ordersContainer" class="orders-grid"></div>
+      </div>
+
+      <!-- Order Detail Modal -->
+      <div class="admin-modal-overlay" id="orderDetailModal">
+        <div class="admin-modal">
+          <div class="admin-modal-header">
+            <h3 id="orderDetailTitle">Order Details</h3>
+            <button class="admin-modal-close" onclick="document.getElementById('orderDetailModal').classList.remove('active')">&times;</button>
+          </div>
+          <div class="admin-modal-body" id="orderDetailBody"></div>
+        </div>
+      </div>
+
+      <!-- Discounts Tab -->
+      <div class="admin-tab" id="tab-discounts">
+        <div class="admin-tab-header">
+          <h2 data-i18n="admin.discounts.title">Discount Codes</h2>
+          <button class="btn-add" id="addDiscountBtn" data-i18n="admin.discounts.add">+ Add Code</button>
+        </div>
+
+        <div class="admin-form-wrap" id="discountFormWrap">
+          <h3 id="discountFormTitle">Add Discount Code</h3>
+          <form id="discountForm">
+            <div class="form-row two">
+              <div>
+                <label data-i18n="admin.discounts.codeLabel">Code</label>
+                <input type="text" id="dfCode" placeholder="e.g. QASR20" style="text-transform:uppercase" required>
+              </div>
+              <div>
+                <label data-i18n="admin.discounts.percentLabel">Discount %</label>
+                <input type="number" id="dfPercent" placeholder="e.g. 20" required>
+              </div>
+            </div>
+          </form>
+          <div class="form-actions">
+            <button class="btn-save" id="saveDiscountBtn" data-i18n="admin.discounts.save">Save Code</button>
+            <button class="btn-cancel" id="cancelDiscountForm" data-i18n="admin.cancel">Cancel</button>
+          </div>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th data-i18n="admin.discounts.thCode">Code</th><th data-i18n="admin.discounts.thDiscount">Discount</th><th data-i18n="admin.discounts.thStatus">Status</th><th data-i18n="admin.discounts.thActions">Actions</th></tr></thead>
+            <tbody id="discountsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Subscribers Tab -->
+      <div class="admin-tab" id="tab-subscribers">
+        <div class="admin-tab-header">
+          <h2 data-i18n="admin.subscribers.title">Subscribers</h2>
+          <button class="btn-add danger" id="deleteAllSubscribersBtn" style="background:var(--danger);color:#fff;font-size:0.7rem;padding:8px 14px" data-i18n="admin.subscribers.deleteAll">Delete All</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th data-i18n="admin.subscribers.thEmail">Email</th><th data-i18n="admin.subscribers.thDate">Date</th><th data-i18n="admin.subscribers.thLang">Language</th><th data-i18n="admin.subscribers.thActions">Actions</th></tr></thead>
+            <tbody id="subscribersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Categories Tab -->
+      <div class="admin-tab" id="tab-categories">
+        <div class="admin-tab-header">
+          <h2 data-i18n="admin.categories.title">Categories</h2>
+          <button class="btn-add" id="addCategoryBtn" data-i18n="admin.categories.add">+ Add Category</button>
+        </div>
+
+        <div class="admin-form-wrap" id="categoryFormWrap">
+          <h3 data-i18n="admin.categories.formAdd">Add New Category</h3>
+          <form id="categoryForm">
+            <div class="form-row two">
+              <div>
+                <label data-i18n="admin.categories.idLabel">Category ID</label>
+                <input type="text" id="cfId" placeholder="e.g. hoodie" style="text-transform:lowercase" required>
+              </div>
+              <div>
+                <label data-i18n="admin.categories.labelLabel">Display Label</label>
+                <input type="text" id="cfLabel" placeholder="e.g. Hoodie" required>
+              </div>
+            </div>
+          </form>
+          <div class="form-actions">
+            <button class="btn-save" id="saveCategoryBtn" data-i18n="admin.categories.save">Save Category</button>
+            <button class="btn-cancel" id="cancelCategoryForm" data-i18n="admin.cancel">Cancel</button>
+          </div>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th data-i18n="admin.categories.thId">ID</th><th data-i18n="admin.categories.thLabel">Label</th><th data-i18n="admin.categories.thCount">Products Count</th><th data-i18n="admin.categories.thActions">Actions</th></tr></thead>
+            <tbody id="categoriesTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Inbox Tab -->
+      <div class="admin-tab" id="tab-inbox">
+        <div class="admin-tab-header">
+          <h2 data-i18n="admin.inbox.title">Inbox</h2>
+          <button class="btn-add danger" id="deleteAllInboxBtn" style="background:var(--danger);color:#fff;font-size:0.7rem;padding:8px 14px" data-i18n="admin.inbox.deleteAll">Delete All</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th data-i18n="admin.inbox.thName">Name</th><th data-i18n="admin.inbox.thEmail">Email</th><th data-i18n="admin.inbox.thMessage">Message</th><th data-i18n="admin.inbox.thDate">Date</th><th data-i18n="admin.inbox.thActions">Actions</th></tr></thead>
+            <tbody id="inboxTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Testimonials Tab -->
+      <div class="admin-tab" id="tab-testimonials">
+        <div class="admin-tab-header">
+          <h2 data-i18n="admin.testimonials.title">Testimonials</h2>
+          <button class="btn-add danger" id="deleteAllTestimonialsBtn" style="background:var(--danger);color:#fff;font-size:0.7rem;padding:8px 14px" data-i18n="admin.testimonials.deleteAll">Delete All</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th data-i18n="admin.testimonials.thAuthor">Author</th><th data-i18n="admin.testimonials.thText">Text</th><th data-i18n="admin.testimonials.thDate">Date</th><th data-i18n="admin.testimonials.thActions">Actions</th></tr></thead>
+            <tbody id="testimonialsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Lookbook Tab -->
+      <div class="admin-tab" id="tab-lookbook">
+        <div class="admin-tab-header">
+          <h2 data-i18n="admin.lookbook.title">Lookbook</h2>
+        </div>
+        <div id="lookbookEditor">
+          <div id="lookbookFormContainer">
+            <div class="admin-form-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end;margin-bottom:12px">
+              <div class="admin-field">
+                <label data-i18n="admin.lookbook.thImage">Image</label>
+                <input type="file" id="lookbookImageFile" accept="image/*" />
+                <small style="display:block;margin-top:4px;color:var(--text-muted);font-size:0.7rem">or paste URL:</small>
+                <input type="text" id="lookbookImageUrl" placeholder="https://..." style="margin-top:4px" />
+                <div id="lookbookImagePreview" style="margin-top:6px;width:80px;height:80px;border-radius:4px;overflow:hidden;background:var(--bg-card);display:none"><img style="width:100%;height:100%;object-fit:cover" /></div>
+              </div>
+              <div class="admin-field">
+                <label data-i18n="admin.lookbook.thTitle">Title</label>
+                <input type="text" id="lookbookTitle" />
+              </div>
+              <div class="admin-field">
+                <label data-i18n="admin.lookbook.thSubtitle">Subtitle</label>
+                <input type="text" id="lookbookSubtitle" />
+              </div>
+              <button class="btn-add" id="saveLookbookBtn" data-i18n="admin.lookbook.save">Save Item</button>
+            </div>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead><tr><th data-i18n="admin.lookbook.thImage">Image</th><th data-i18n="admin.lookbook.thTitle">Title</th><th data-i18n="admin.lookbook.thSubtitle">Subtitle</th><th data-i18n="admin.lookbook.thActions">Actions</th></tr></thead>
+              <tbody id="lookbookTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script>initFirebase();</script>
+  <script src="js/translations.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
